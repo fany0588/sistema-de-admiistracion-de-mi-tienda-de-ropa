@@ -1,0 +1,109 @@
+{% extends 'app_famfashion/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4><i class="bi bi-cart"></i> Detalle del Pedido #{{ pedido.id_pedido }}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Información del Cliente</h5>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Nombre:</th>
+                                    <td>
+                                        {% if pedido.id_cliente %}
+                                            {{ pedido.id_cliente.nombre }} {{ pedido.id_cliente.apellido }}
+                                        {% else %}
+                                            Cliente no disponible
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>
+                                        {% if pedido.id_cliente %}
+                                            {{ pedido.id_cliente.email }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Teléfono:</th>
+                                    <td>
+                                        {% if pedido.id_cliente %}
+                                            {{ pedido.id_cliente.telefono }}
+                                        {% else %}
+                                            -
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Información del Pedido</h5>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Producto:</th>
+                                    <td>{{ pedido.nombre_producto }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Cantidad:</th>
+                                    <td>{{ pedido.cantidad }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Precio Unitario:</th>
+                                    <td>${{ pedido.precio_unitario }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <td><strong>${{ pedido.total }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Método de Pago:</th>
+                                    <td>{{ pedido.metodo_pago }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Estado:</th>
+                                    <td>
+                                        <span class="badge 
+                                            {% if pedido.estado == 'Entregado' %}bg-success
+                                            {% elif pedido.estado == 'Enviado' %}bg-primary
+                                            {% elif pedido.estado == 'Pendiente' %}bg-warning
+                                            {% else %}bg-danger{% endif %}">
+                                            {{ pedido.estado }}
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h5>Dirección de Envío</h5>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>{{ pedido.direccion }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <a href="{% url 'ver_pedidos' %}" class="btn btn-secondary">Volver</a>
+                        <a href="{% url 'actualizar_estado_pedido' pedido.id_pedido %}" class="btn btn-warning">
+                            Actualizar Estado
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

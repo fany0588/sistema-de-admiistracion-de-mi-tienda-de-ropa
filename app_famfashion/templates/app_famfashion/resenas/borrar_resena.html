@@ -1,0 +1,43 @@
+{% extends 'app_famfashion/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h4><i class="bi bi-trash"></i> Eliminar Reseña</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        <h5>¿Estás seguro de que deseas eliminar esta reseña?</h5>
+                        <p><strong>Cliente:</strong> 
+                            {% if resena.id_cliente %}
+                                {{ resena.id_cliente.nombre }} {{ resena.id_cliente.apellido }}
+                            {% else %}
+                                Cliente no disponible
+                            {% endif %}
+                        </p>
+                        <p><strong>Calificación:</strong> 
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= resena.calificacion %}
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                {% else %}
+                                    <i class="bi bi-star text-muted"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="mb-0">Esta acción no se puede deshacer.</p>
+                    </div>
+                    
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+                        <a href="{% url 'ver_resenas' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

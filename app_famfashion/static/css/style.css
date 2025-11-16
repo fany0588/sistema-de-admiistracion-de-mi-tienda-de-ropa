@@ -1,0 +1,324 @@
+/* FAMFASHION - Custom Styles */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: calc(100vh - 56px);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .nav-link {
+    color: white;
+    padding: 12px 15px;
+    margin: 4px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-left: 4px solid white;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: none;
+    padding: 1.25rem;
+    font-weight: 600;
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%);
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+}
+
+/* Table Styles */
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table th {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    font-weight: 600;
+    padding: 15px;
+}
+
+.table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-color: #f1f3f4;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+/* Badge Styles */
+.badge {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 10px;
+    border: none;
+    padding: 15px 20px;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    color: #721c24;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    color: #856404;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d1edff 0%, #b3d9ff 100%);
+    color: #155724;
+}
+
+/* Footer Styles */
+.footer {
+    background: var(--dark-color);
+    color: white;
+    margin-top: auto;
+}
+
+.footer small {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Custom Utilities */
+.gradient-bg {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Icon Styles */
+.bi {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+    }
+    
+    .card {
+        margin-bottom: 15px;
+    }
+    
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Loading Spinner */
+.spinner-border {
+    color: var(--primary-color);
+}
+
+/* Custom Badge Variants */
+.badge-outline-primary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.badge-outline-success {
+    background-color: transparent;
+    border: 2px solid var(--success-color);
+    color: var(--success-color);
+}
+
+/* Image Styles */
+.img-thumbnail {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: transform 0.3s ease;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Status Indicators */
+.status-pending {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.status-completed {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.status-cancelled {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}

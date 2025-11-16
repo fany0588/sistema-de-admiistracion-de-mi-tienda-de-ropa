@@ -1,0 +1,16 @@
+<footer class="footer mt-auto py-3 bg-dark text-white">
+    <div class="container text-center">
+        <span>&copy; 2024 FAMFASHION - Todos los derechos reservados</span>
+        <br>
+        <small>Creado por Alumno Estefania Gonzalez, Cbtis 128</small>
+        <br>
+        <small id="fecha-sistema"></small>
+    </div>
+</footer>
+
+<script>
+    // Mostrar fecha actual
+    const fecha = new Date();
+    document.getElementById('fecha-sistema').textContent = 
+        'Fecha del sistema: ' + fecha.toLocaleDateString('es-MX');
+</script>

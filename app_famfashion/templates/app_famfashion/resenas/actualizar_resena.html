@@ -1,0 +1,62 @@
+{% extends 'app_famfashion/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h4><i class="bi bi-pencil"></i> Actualizar Reseña</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Cliente</label>
+                                    <select class="form-select" name="id_cliente" disabled>
+                                        <option>
+                                            {% if resena.id_cliente %}
+                                                {{ resena.id_cliente.nombre }} {{ resena.id_cliente.apellido }}
+                                            {% else %}
+                                                Cliente no disponible
+                                            {% endif %}
+                                        </option>
+                                    </select>
+                                    <small class="text-muted">El cliente no se puede modificar</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Calificación</label>
+                                    <select class="form-select" name="calificacion" required>
+                                        <option value="1" {% if resena.calificacion == 1 %}selected{% endif %}>★ - Mala</option>
+                                        <option value="2" {% if resena.calificacion == 2 %}selected{% endif %}>★★ - Regular</option>
+                                        <option value="3" {% if resena.calificacion == 3 %}selected{% endif %}>★★★ - Buena</option>
+                                        <option value="4" {% if resena.calificacion == 4 %}selected{% endif %}>★★★★ - Muy Buena</option>
+                                        <option value="5" {% if resena.calificacion == 5 %}selected{% endif %}>★★★★★ - Excelente</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Foto del Producto</label>
+                                    <input type="file" class="form-control" name="foto_producto">
+                                    {% if resena.foto_producto %}
+                                        <small class="text-muted">Imagen actual: {{ resena.foto_producto.name }}</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Comentario</label>
+                            <textarea class="form-control" name="comentario" rows="4">{{ resena.comentario }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Actualizar Reseña</button>
+                        <a href="{% url 'ver_resenas' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

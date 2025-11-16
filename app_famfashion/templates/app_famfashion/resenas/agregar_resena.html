@@ -1,0 +1,58 @@
+{% extends 'app_famfashion/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4><i class="bi bi-star"></i> Agregar Nueva Reseña</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Cliente</label>
+                                    <select class="form-select" name="id_cliente">
+                                        <option value="">Seleccionar cliente...</option>
+                                        {% for cliente in clientes %}
+                                        <option value="{{ cliente.id_cliente }}">
+                                            {{ cliente.nombre }} {{ cliente.apellido }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Calificación</label>
+                                    <select class="form-select" name="calificacion" required>
+                                        <option value="1">★ - Mala</option>
+                                        <option value="2">★★ - Regular</option>
+                                        <option value="3">★★★ - Buena</option>
+                                        <option value="4">★★★★ - Muy Buena</option>
+                                        <option value="5" selected>★★★★★ - Excelente</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Foto del Producto</label>
+                                    <input type="file" class="form-control" name="foto_producto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Comentario</label>
+                            <textarea class="form-control" name="comentario" rows="4" 
+                                      placeholder="Escribe tu comentario sobre el producto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Reseña</button>
+                        <a href="{% url 'ver_resenas' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

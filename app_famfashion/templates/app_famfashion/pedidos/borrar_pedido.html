@@ -1,0 +1,37 @@
+{% extends 'app_famfashion/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h4><i class="bi bi-trash"></i> Eliminar Pedido</h4>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-danger">
+                        <h5>¿Estás seguro de que deseas eliminar este pedido?</h5>
+                        <p><strong>Pedido #:</strong> {{ pedido.id_pedido }}</p>
+                        <p><strong>Producto:</strong> {{ pedido.nombre_producto }}</p>
+                        <p><strong>Cliente:</strong> 
+                            {% if pedido.id_cliente %}
+                                {{ pedido.id_cliente.nombre }} {{ pedido.id_cliente.apellido }}
+                            {% else %}
+                                Cliente no disponible
+                            {% endif %}
+                        </p>
+                        <p><strong>Total:</strong> ${{ pedido.total }}</p>
+                        <p class="mb-0">Esta acción no se puede deshacer.</p>
+                    </div>
+                    
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
+                        <a href="{% url 'ver_pedidos' %}" class="btn btn-secondary">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

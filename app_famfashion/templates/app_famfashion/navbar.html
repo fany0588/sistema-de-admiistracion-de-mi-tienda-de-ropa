@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'inicio_famfashion' %}">
+                        <i class="bi bi-house"></i> Inicio
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bag"></i> Productos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><h6 class="dropdown-header">Mujer</h6></li>
+                        <li><a class="dropdown-item" href="{% url 'agregar_mujer' %}">Agregar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_mujer' %}">Ver/Editar/Borrar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        <li><h6 class="dropdown-header">Hombre</h6></li>
+                        <li><a class="dropdown-item" href="{% url 'agregar_hombre' %}">Agregar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_hombre' %}">Ver/Editar/Borrar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        <li><h6 class="dropdown-header">Niñas</h6></li>
+                        <li><a class="dropdown-item" href="{% url 'agregar_ninas' %}">Agregar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_ninas' %}">Ver/Editar/Borrar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        
+                        <li><h6 class="dropdown-header">Niños</h6></li>
+                        <li><a class="dropdown-item" href="{% url 'agregar_ninos' %}">Agregar</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_ninos' %}">Ver/Editar/Borrar</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-people"></i> Clientes
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'agregar_cliente' %}">Agregar Cliente</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_clientes' %}">Ver Clientes</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+       data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-cart"></i> Pedidos
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="{% url 'agregar_pedido' %}">Agregar Pedido</a></li>
+        <li><a class="dropdown-item" href="{% url 'ver_pedidos' %}">Ver Pedidos</a></li>
+    </ul>
+</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ver_resenas' %}">
+                        <i class="bi bi-star"></i> Reseñas
+                    </a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                Sistema de Administración FAMFASHION
+            </span>
+        </div>
+    </div>
+</nav>
